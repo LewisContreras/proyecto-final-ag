@@ -13,10 +13,6 @@ function ContentPost() {
                 <Icon fontSize={30} color="white" as={MdPhoto} />
                 <Button color="#33A109" >Publicar</Button>   
             </HStack>
-<<<<<<< HEAD
-            {/* <InputPrueba/> */}
-=======
->>>>>>> Carlos
         </Center>
     )
 }

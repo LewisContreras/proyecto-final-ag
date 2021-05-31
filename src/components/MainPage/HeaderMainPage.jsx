@@ -28,10 +28,7 @@ function HeaderMainPage() {
                 <Input type="text" placeholder="Search" color="black" backgroundColor="white" />
             </InputGroup>
            <Link color="white" to="/post" as={ReachLink} > Publicar</Link>
-<<<<<<< HEAD
-=======
            <Link onClick={ handleClickLogout }><FcExport /></Link>
->>>>>>> Carlos
         </HStack>
     )
 }
