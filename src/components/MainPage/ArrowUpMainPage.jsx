@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { Center, Link } from '@chakra-ui/layout'
+import { Center } from '@chakra-ui/layout'
 import React from 'react'
 import { FaArrowUp } from 'react-icons/fa'
 

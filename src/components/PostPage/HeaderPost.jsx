@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { Box, HStack, Link } from '@chakra-ui/layout'
+import { HStack, Link } from '@chakra-ui/layout'
 import React from 'react'
 import { FaHome } from 'react-icons/fa'
 import { Link as ReachLink } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import { Input } from '@chakra-ui/input'
-import { Box, VStack } from '@chakra-ui/layout'
+import { VStack } from '@chakra-ui/layout'
 import React from 'react'
 import ReceivedMessage from './ReceivedMessage'
 import SentMessage from './SentMessage'

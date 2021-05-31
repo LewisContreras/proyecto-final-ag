@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { Box, Center, Link, Text } from '@chakra-ui/layout'
+import { Box, Center, Text } from '@chakra-ui/layout'
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useHistory } from 'react-router'

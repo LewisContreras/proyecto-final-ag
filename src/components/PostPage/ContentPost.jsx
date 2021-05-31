@@ -1,11 +1,9 @@
 import { Button } from '@chakra-ui/button'
 import Icon from '@chakra-ui/icon'
-import { Input } from '@chakra-ui/input'
-import { Box, Center, HStack } from '@chakra-ui/layout'
+import { Center, HStack } from '@chakra-ui/layout'
 import { Textarea } from '@chakra-ui/textarea'
 import React from 'react'
 import {MdPhoto} from "react-icons/md"
-import InputPrueba from './InputPrueba'
 
 function ContentPost() {
     return (
@@ -15,7 +13,10 @@ function ContentPost() {
                 <Icon fontSize={30} color="white" as={MdPhoto} />
                 <Button color="#33A109" >Publicar</Button>   
             </HStack>
+<<<<<<< HEAD
             {/* <InputPrueba/> */}
+=======
+>>>>>>> Carlos
         </Center>
     )
 }
