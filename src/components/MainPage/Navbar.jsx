@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '@chakra-ui/icon';
-import { FaPaw, FaSearch } from 'react-icons/fa';
+import { FaPaw } from 'react-icons/fa';
 import '../../styles/style.scss';
 
 function Navbar() {

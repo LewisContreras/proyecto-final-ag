@@ -2,7 +2,6 @@ import React from 'react';
 import '../../styles/style.scss';
 import { NavLink, Link } from 'react-router-dom';
 import { FaHome, FaPlusSquare, FaMapMarkedAlt } from "react-icons/fa";
-import { MdAccountCircle } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
@@ -27,7 +26,7 @@ function SideBar() {
 			 </div> */}
 
 			<div className="dropdown border-top">
-				<a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+				<a href="/#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
 					<img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" className="rounded-circle" />
 				</a>
 				<ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
