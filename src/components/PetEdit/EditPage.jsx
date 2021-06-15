@@ -85,7 +85,7 @@ function EditPage() {
 		})
 	}
 	return (
-		<div>
+		<div className="scene_element scene_element--fadeinup">
 			<HStack top="0" width="100%" padding={6} height="60px" backgroundColor="#33A109" >
 				<Link to="/my-pets" as={ReachLink} >
 					<Icon fontSize={30} color="white" as={FaArrowLeft} />
@@ -164,6 +164,7 @@ function EditPage() {
 						id="desc_reward"
 						name="desc_reward"
 						backgroundColor="white"
+						color="black"
 						placeholder="Descripción de la Recompensa"
 						value={formik.values.desc_reward}
 						onChange={formik.handleChange}
@@ -174,6 +175,7 @@ function EditPage() {
 						id="desc_pet"
 						name="desc_pet"
 						backgroundColor="white"
+						color="black"
 						placeholder="Descripción de la Mascota"
 						value={formik.values.desc_pet}
 						onChange={formik.handleChange}

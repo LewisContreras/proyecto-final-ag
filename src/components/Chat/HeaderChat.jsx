@@ -13,7 +13,7 @@ function HeaderChat() {
             </Box>
             <Text fontWeight="600" mt={2} color="white" >Contacto</Text>
 
-            <Icon onClick={()=>history.goBack()} fontSize="30px" color="white" position="absolute" top="calc(50%-30px)" left={8} as={FaArrowLeft} />
+            <Icon onClick={()=>history.goBack()} fontSize="30px" color="white" position="absolute" cursor="pointer" top="calc(50%-30px)" left={8} as={FaArrowLeft} />
 
         </Center>
         

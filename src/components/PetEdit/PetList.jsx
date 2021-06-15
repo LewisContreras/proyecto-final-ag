@@ -109,7 +109,7 @@ function PetList() {
 	}
 
 	return (
-		<div>
+		<div className="scene_element scene_element--fadeinright">
 			<HeaderPost />
 			<Center flexDirection="column" pt="10px" backgroundColor="#77D353" minHeight="93vh">
 				<div className="lista-peliculas col-md-8 mx-auto text-center">
