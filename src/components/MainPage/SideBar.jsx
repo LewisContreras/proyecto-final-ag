@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/style.scss';
 import { NavLink, Link } from 'react-router-dom';
-import { FaHome, FaPlusSquare, FaMapMarkedAlt } from "react-icons/fa";
+import { FaHome, FaPlusSquare, FaMapMarkedAlt, FaClipboardList } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
@@ -17,8 +17,8 @@ function SideBar() {
 			<ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
 				<li className="nav-item"><NavLink className="nav-link text-light w-100 d-inline-block" exact to="/" activeClassName="active"><FaHome style={{ height: '24px', width: '24px' }} /></NavLink></li>
 				<li className="nav-item"><NavLink className="nav-link text-light w-100 d-inline-block" exact to="/post" activeClassName="active"><FaPlusSquare style={{ height: '24px', width: '24px' }} /></NavLink></li>
-				<li className="nav-item"><NavLink className="nav-link text-light w-100 d-inline-block" exact to="/s" activeClassName="active"><FaMapMarkedAlt style={{ height: '24px', width: '24px' }} /></NavLink></li>
-				<li className="nav-item"></li>
+				<li className="nav-item"><NavLink className="nav-link text-light w-100 d-inline-block" exact to="/my-pets" activeClassName="active"><FaClipboardList style={{ height: '24px', width: '24px' }} /></NavLink></li>
+				<li className="nav-item"><NavLink className="nav-link text-light w-100 d-inline-block" exact to="/maps" activeClassName="active"><FaMapMarkedAlt style={{ height: '24px', width: '24px' }} /></NavLink></li>
 			</ul>
 			{/* <div
 			 className="border-top">

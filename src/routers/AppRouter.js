@@ -12,6 +12,7 @@ import { login } from '../components/actions/auth'
 import { PublicRoute } from './PublicRouter';
 import { PrivateRoute } from './PrivateRouter';
 import Routes from './Routes.jsx'
+import { startLoadingPets, startLoadinMyPets } from '../components/actions/pets';
 
 
 export const AppRouter = () => {
@@ -29,7 +30,8 @@ export const AppRouter = () => {
             // console.log(user) Se muestra por consola la información del user logeado
             if(user?.uid){
                 dispatch(login(user.uid, user.displayName))
-
+                dispatch(startLoadingPets(user.uid))
+                dispatch(startLoadinMyPets(user.uid))
                 //Actualizamos el Estado cuando inicie sesión
                 setIsLooggedIn(true)
             }else{

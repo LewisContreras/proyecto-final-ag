@@ -16,6 +16,22 @@ export const loadPets = async ( uid ) => {
     return pets;
 }
 
+export const loadMyPets = async ( uid ) => {
+
+    const petsSnap = await db.collection('Data/pets/pet').where('id_user', '==', `${uid}`).get();
+
+    const myPets = [];
+
+    petsSnap.forEach( snapHijo => {
+        myPets.push({
+            id: snapHijo.id,
+            ...snapHijo.data()
+        })
+    });
+
+    return myPets;
+}
+
 export const loadSearch = async(search) => {
 
     let respuesta = '';

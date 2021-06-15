@@ -1,8 +1,9 @@
 import Swal from 'sweetalert2';
 import { db } from '../../firebase/firebase-config';
 import { types } from '../../types/types';
-import { loadPets, loadSearch } from '../../helpers/loadPets';
+import { loadPets, loadMyPets, loadSearch } from '../../helpers/loadPets';
 import { fileUpload } from '../../helpers/fileUpload';
+import { Redirect } from "react-router-dom";
 
 export const startNewPet = (pet) => {
 
@@ -19,11 +20,14 @@ export const startNewPet = (pet) => {
             desc_pet: pet.desc_pet,
             latitude: pet.latitude,
             longitude: pet.longitude,
+            url: pet.url_pet,
             id_user: uid,
+            state: 'Desaparecido'
         }
 
         const doc = await db.collection("Data/pets/pet").add(newPet);
-        // dispatch(activePet(doc.id, newPet));
+        dispatch(startLoadinMyPets(uid));
+        dispatch(startLoadingPets(uid));
         dispatch(addNewPet(doc.id, newPet));
 
     }
@@ -44,6 +48,13 @@ export const addNewPet = (id, pet) => ({
     }
 })
 
+export const startLoadinMyPets = (uid) => {
+    return async (dispatch) => {
+        const pets = await loadMyPets(uid);
+        dispatch(setMyPets(pets));
+    }
+}
+
 export const startLoadingPets = (uid) => {
     return async (dispatch) => {
         const pets = await loadPets(uid);
@@ -59,6 +70,11 @@ export const startSearch = (search) => {
     }
 }
 
+export const setMyPets = (pets) => ({
+    type: types.myPetLoad,
+    payload: pets
+});
+
 export const setPets = (pets) => ({
     type: types.petLoad,
     payload: pets
@@ -66,19 +82,12 @@ export const setPets = (pets) => ({
 
 export const startSavePet = (pet) => {
     return async (dispatch, getState) => {
-
         const { uid } = getState().auth;
-
-        if (!pet.url) {
-            delete pet.url;
-        }
 
         const petToFirestore = { ...pet };
         delete petToFirestore.id;
 
-        await db.doc(`Catalogo/pets/pet/${pet.id}`).update(petToFirestore);
-
-        dispatch(startLoadingPets(uid));
+        await db.doc(`Data/pets/pet/${pet.id}`).update(petToFirestore);
 
         Swal.fire({
             position: 'center',
@@ -89,6 +98,8 @@ export const startSavePet = (pet) => {
             timer: 1000
         })
 
+        dispatch(startLoadingPets(uid));
+        dispatch(startLoadinMyPets(uid));
     }
 }
 
@@ -119,17 +130,25 @@ export const startUploading = (file) => {
 
         const fileUrl = await fileUpload(file);
         Swal.close();
-        return(fileUrl)
+        return (fileUrl)
 
     }
 }
 
 export const startDeleting = (id) => {
     return async (dispatch, getState) => {
-        // const uid = getState().auth.uid;
-        await db.doc(`Catalogo/pets/pet/${id}`).delete();
-
+        const uid = getState().auth.uid;
+        await db.doc(`Data/pets/pet/${id}`).delete();
         dispatch(deletePet(id));
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registro Eliminado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        dispatch(startLoadingPets(uid));
+        dispatch(startLoadinMyPets(uid));
 
     }
 }

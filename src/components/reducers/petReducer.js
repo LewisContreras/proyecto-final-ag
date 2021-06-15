@@ -2,6 +2,7 @@ import { types } from '../../types/types';
 
 const initialState = {
     pets: [],
+    myPets: [],
     active: null
 }
 
@@ -20,6 +21,14 @@ export const petReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pets: [
+                    ...action.payload
+                ]
+            }
+
+        case types.myPetLoad:
+            return {
+                ...state,
+                myPets: [
                     ...action.payload
                 ]
             }

@@ -11,6 +11,7 @@ export const types = {
     petAddNew: '[Pets] New Pet',
     petActive: '[Pets] Set Active Pet',
     petLoad: '[Pets] Load Pets',
+    myPetLoad: '[Pets] Load My Pets',
     petUpdated: '[Pets] Updated Pet',
     petFileUrl: '[Pets] Updated Image URL',
     petDelete: '[Pets] Delete Pet',
