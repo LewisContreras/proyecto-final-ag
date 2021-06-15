@@ -8,10 +8,8 @@ export const startGoogleLogin = () => {
         firebase.auth().signInWithPopup(googleAuthProvider)
             .then(({ user }) => {
                 dispatch(login(user.uid, user.displayName))
-                console.log(user)
             })
             .catch(e => {
-                console.log(e)
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
