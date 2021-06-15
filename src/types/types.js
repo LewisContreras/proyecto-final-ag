@@ -16,4 +16,6 @@ export const types = {
     petFileUrl: '[Pets] Updated Image URL',
     petDelete: '[Pets] Delete Pet',
     petLogoutCleaning: '[Pets] Logout Cleaning',
+    petSearchInfo: "[PET] Search Info",
+    petDetail: "[PET] Detail view"
 }
