@@ -7,7 +7,7 @@ import "../../styles/animations.css"
 
 function CardsContainer() {
     return (
-        <Grid templateColumns="repeat(auto-fill,160px)" gap="20px" justifyContent="space-evenly" mt="100px" width="90%" mx="auto" pb="20px"   >
+        <Grid templateColumns="repeat(auto-fill,160px)" gap="10px" justifyContent="space-evenly" mt="100px" width={["100%","90%"]} mx="auto" pb="20px"   >
             {
                 Array(8).fill("").map((el, index) => <Link display="inline-block" _hover={{
                     textDecoration:"none",
