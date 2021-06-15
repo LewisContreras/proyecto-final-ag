@@ -1,22 +1,33 @@
 import { Image } from '@chakra-ui/image'
 import { Text } from '@chakra-ui/layout'
 import { Box } from '@chakra-ui/layout'
+import { Center, HStack, VStack } from '@chakra-ui/react'
 import React from 'react'
 import "../../styles/animations.css"
 
 
 
 function EachPetCard({pet}) {
-    console.log(pet);
     return (
-        <Box className="scene_element scene_element--fadeinup" borderRadius="6px" boxShadow="lg" overflow="hidden" width="160px"
+        <Box border="2px solid #77D353" className="scene_element scene_element--fadeinup" borderRadius="6px" boxShadow="lg" overflow="hidden" width="160px"
           backgroundColor="#77D353" >
             <Image  width="100%" height="180px" src={pet.url} />
-            <Text mx="2" mt="10px" width="max-content" borderRadius="20px" py="3px" px="10px" bgColor="yellow.300" color="white" textDecoration="none" >{pet.state}</Text>
-            <Text>{`Nombre: ${pet.name}`}</Text>
-            <Text>Dirección</Text>
-            <Text>{pet.latitude}</Text>
-            <Text>{pet.longitude}</Text>
+            <VStack px="3px" my="10px"  alignItems="start" >
+                <HStack  justifyContent="space-evenly" >
+                <Text   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >{pet.state}</Text>
+                    {
+                        !pet.reward
+                        ?null
+                        :<Center fontWeight="700" border="3px solid black" borderRadius="34px" px="5px" h="30px" color="black" fontSize="xl" bgColor="gold"  >
+                        $
+                        </Center>
+                    }
+                </HStack>
+                <Text fontSize="18px" color="blackAlpha.700" fontWeight="700"  >Nombre: <Text color="white" fontWeight="400" as="span" >{pet.name}</Text>
+                </Text>
+                <Text fontSize="18px" color="blackAlpha.700" fontWeight="700"  >Dirección: <Text color="white" fontWeight="400" as="span" ></Text>
+                </Text>
+            </VStack>
         </Box>       
     )
 }

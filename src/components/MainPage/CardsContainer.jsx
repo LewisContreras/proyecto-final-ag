@@ -6,14 +6,13 @@ import { Grid } from '@chakra-ui/react';
 import "../../styles/animations.css"
 import { useDispatch, useSelector } from 'react-redux';
 import {db} from "../../firebase/firebase-config"
-import { petSearchInfo } from '../actions/petsInfoActions.js';
+import { petDetail, petSearchInfo } from '../actions/petsInfoActions.js';
 
 function CardsContainer() {
     const dispatch = useDispatch()
     const info = useSelector(state => state.petsInfo.info)
     useEffect(() => {
         let pets = []
-        console.log("hola");
         db.collection("Data/pets/pet").get().then(snap =>{
 
 
@@ -37,7 +36,7 @@ function CardsContainer() {
                 :info.map((el, index) => <Link display="inline-block" _hover={{
                     textDecoration:"none",
                     transform: "scale(1.03)"
-                }} textDecoration="none" key={index} as={ReachLink} to={`/detail/${index}`} ><EachPetCard id={index} pet={el} /></Link> )
+                }} textDecoration="none" key={index} as={ReachLink} to={`/detail/${el.id}`} onClick={()=>dispatch(petDetail(el))}><EachPetCard id={index} pet={el} /></Link> )
             }
             
         </Grid>

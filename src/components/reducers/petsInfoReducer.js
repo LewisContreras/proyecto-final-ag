@@ -1,7 +1,8 @@
 import {types} from '../../types/types'
 
 const initialState = {
-    info:[]
+    info:[],
+    detail:null
 }
 
 export const petsInfoReducer = (state = initialState, action) => {
@@ -10,6 +11,12 @@ export const petsInfoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 info: action.payload
+            }
+        
+        case types.petDetail:
+            return {
+                ...state,
+                detail: action.payload
             }
 
         default:

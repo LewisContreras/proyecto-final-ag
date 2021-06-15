@@ -12,7 +12,8 @@ function Routes() {
         <Router>
             <Switch>
                 <Route exact path="/" component={MainPage} />
-                <Route exact path="/post" component={PostPage} /><Route exact path="/detail/:id" component={PetDetailView} />
+                <Route exact path="/post" component={PostPage} />
+                <Route exact path="/detail/:id" component={PetDetailView} />
                 <Route exact path="/chat" component={Chat} />
             </Switch>
         </Router>

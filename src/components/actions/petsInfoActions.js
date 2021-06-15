@@ -8,6 +8,13 @@ export const petSearchInfo = (pets) => {
     }
 }
 
+export const petDetail = (pet) => {
+    return {
+        type: types.petDetail,
+        payload: pet
+    }
+}
+
 // export const startMovieSelected = (categorie) => {
 
 //     return async (dispatch,getState) => {
