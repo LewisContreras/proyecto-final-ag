@@ -5,7 +5,7 @@ import InfoDetailView from '../components/PetDetailView/InfoDetailView'
 
 function PetDetailView() {
     return (
-        <Box>
+        <Box display={["block","block", "flex"]} flexDirection={["column", "column", "row"]} >
             <ImageDetailView/>
             <InfoDetailView/>
         </Box>
