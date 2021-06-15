@@ -14,7 +14,6 @@ function CardsContainer() {
                     transform: "scale(1.03)"
                 }} textDecoration="none" key={index} as={ReachLink} to={`/detail/${index}`} ><EachPetCard id={index}  /></Link> )
             }
-            
         </Grid>
     )
 }

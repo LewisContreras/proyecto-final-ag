@@ -1,8 +1,8 @@
-.on-the-right{
+.on-the-right {
     transform: translate3D(10%, 0, 10px);
 }
 
-.on-the-left{
+.on-the-left {
     transform: translate3d(-100%, 0, 0);
 }
 
@@ -12,15 +12,19 @@
     transition-timing-function: ease-in;
     animation-fill-mode: both;
 }
+
 .scene_element--fadein {
     animation-name: fadeIn;
 }
+
 .scene_element--fadeinup {
     animation-name: fadeInUp;
 }
+
 .scene_element--fadeinright {
     animation-name: fadeInRight;
 }
+
 .scene_element--fadeoutright {
     animation-name: fadeOutRight;
 }
@@ -36,42 +40,43 @@
 .scene_element--fadeoutleft {
     animation-name: fadeOutLeft;
 }
+
 .scene_element--fadeinleft {
     animation-name: fadeInLeft;
 }
 
 @keyframes fadeIn {
-0% {
-    opacity: 0;
-}
+    0% {
+        opacity: 0;
+    }
 
-100% {
-    opacity: 1;
-}
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
-0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-}
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
 
-100% {
-    opacity: 1;
-    transform: none;
-}
+    100% {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @keyframes fadeInRight {
-0% {
-    /* opacity: 0; */
-    transform: translate3d(100%, 0, 0);
-}
+    0% {
+        /* opacity: 0; */
+        transform: translate3d(100%, 0, 0);
+    }
 
-100% {
-    /* opacity: 1; */
-    transform: none;
-}
+    100% {
+        /* opacity: 1; */
+        transform: none;
+    }
 }
 
 @keyframes fadeOutRight {
@@ -79,37 +84,37 @@
         opacity: 1;
         transform: none;
     }
-    
+
     100% {
         opacity: 0;
         transform: translate3d(-100%, 0, 0);
-        
+
     }
-    }
+}
 
 @keyframes fadeOutLeft {
     0% {
         opacity: 1;
         transform: none;
     }
-    
+
     100% {
         opacity: 0;
         transform: translate3d(100%, 0, 0);
-        
+
     }
-    }
+}
 
 @keyframes fadeInLeft {
-0% {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-}
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
 
-100% {
-    opacity: 1;
-    transform: none;
-}
+    100% {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @keyframes clipPathDown {
@@ -117,19 +122,19 @@
         clip-path: circle(100.2% at 50% 100%);
         clip-path: circle(0 at 0 0%);
     }
-    
+
     100% {
         clip-path: circle(140% at 0 0%);
     }
-    }
+}
 
 @keyframes clipMidUp {
     0% {
         clip-path: circle(0% at 50% 100%);
-        
+
     }
-    
+
     100% {
         clip-path: circle(112% at 50% 100%);
     }
-    }
+}

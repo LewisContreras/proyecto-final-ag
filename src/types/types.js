@@ -7,4 +7,13 @@ export const types = {
 
     uiStartLoading: '[UI] Start Loading',
     uiFinishLoading: '[UI] Finish Loading',
+
+    petAddNew: '[Pets] New Pet',
+    petActive: '[Pets] Set Active Pet',
+    petLoad: '[Pets] Load Pets',
+    myPetLoad: '[Pets] Load My Pets',
+    petUpdated: '[Pets] Updated Pet',
+    petFileUrl: '[Pets] Updated Image URL',
+    petDelete: '[Pets] Delete Pet',
+    petLogoutCleaning: '[Pets] Logout Cleaning',
 }

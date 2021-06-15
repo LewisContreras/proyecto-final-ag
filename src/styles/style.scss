@@ -1,0 +1,26 @@
+.flex {
+  display: flex;
+}
+
+.navbar {
+  background-color: green;
+}
+.sidebar {
+  width: 4rem;
+  height: calc(110vh - 52px) !important;
+  border-right: 1px solid gray;
+  background-color: green;
+
+  ul {
+    list-style: none;
+
+    li {
+      a {
+        text-decoration: none;
+        &.active {
+		  opacity: 0.4;
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ import { Link as ReachLink } from 'react-router-dom';
 
 function HeaderPost() {
     return (
-        <HStack position="fixed" top="0" width="100%" padding={6} height="80px" backgroundColor="#33A109" >
+        <HStack top="0" width="100%" padding={6} height="60px" backgroundColor="#33A109" >
             <Link to="/" as={ReachLink} >
                 <Icon fontSize={30} color="white" as={FaHome} />
             </Link>
