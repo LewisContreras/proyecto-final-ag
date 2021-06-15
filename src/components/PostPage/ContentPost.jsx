@@ -12,11 +12,12 @@ import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useHistory  } from 'react-router-dom'
 
 function ContentPost() {
 
     const dispatch = useDispatch();
-
+    let history = useHistory();
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -47,14 +48,23 @@ function ContentPost() {
         onSubmit: values => {
             dispatch(startNewPet(values));
 
-            Swal.fire(
-                'Excelente!',
-                'Registro realizado con éxito!',
-                'success'
-            )
+            Swal.fire({
+				position: 'center',
+				icon: 'success',
+				title: 'Your work has been saved',
+				showConfirmButton: false,
+				allowEscapeKey: false,
+				allowOutsideClick: false,
+				timer: 1500
+			})
             formik.handleReset()
+            setTimeout(pushHome, 2000)
         },
     });
+
+    const pushHome = () => {
+        history.push('/')
+    }
 
     const getPosition = () => {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -160,7 +170,7 @@ function ContentPost() {
                     <Button
                         mt={4}
                         colorScheme="teal"
-                        type="submit"
+                        type="button"
                         onClick={getPosition}
                     >
                         Obtener Mi Ubicacion
@@ -184,7 +194,7 @@ function ContentPost() {
                     <Button
                         mt={4}
                         colorScheme="teal"
-                        type="submit"
+                        type="button"
                         onClick={handlePicture}
                     >
                         Agregar Imagen de la Mascota

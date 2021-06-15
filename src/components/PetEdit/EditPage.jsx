@@ -13,7 +13,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Icon from '@chakra-ui/icon'
 import { HStack, Link } from '@chakra-ui/layout'
-import { Link as ReachLink } from 'react-router-dom'
+import { Link as ReachLink, useHistory  } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -21,7 +21,7 @@ function EditPage() {
 
 	const dispatch = useDispatch();
 	const { active } = useSelector(state => state.pets);
-
+	let history = useHistory();
 	const formik = useFormik({
 		initialValues: {
 			id: active.id,
@@ -55,12 +55,16 @@ function EditPage() {
 		}),
 		onSubmit: values => {
 			dispatch(startSavePet(values));
-			Swal.fire(
-				'Excelente!',
-				'Registro realizado con éxito!',
-				'success'
-			)
-			formik.handleReset()
+			Swal.fire({
+				position: 'center',
+				icon: 'success',
+				title: 'Your work has been saved',
+				showConfirmButton: false,
+				allowEscapeKey: false,
+				allowOutsideClick: false,
+				timer: 1500
+			})
+			//
 		},
 	});
 
@@ -84,6 +88,11 @@ function EditPage() {
 			formik.values.ur = url
 		})
 	}
+
+	const pushList = () => {
+        history.push('/my-pets')
+    }
+
 	return (
 		<div className="scene_element scene_element--fadeinup">
 			<HStack top="0" width="100%" padding={6} height="60px" backgroundColor="#33A109" >
@@ -185,7 +194,7 @@ function EditPage() {
 					<Button
 						mt={4}
 						colorScheme="teal"
-						type="submit"
+						type="button"
 						onClick={getPosition}
 					>
 						Obtener Mi Ubicacion
@@ -211,7 +220,7 @@ function EditPage() {
 					<Button
 						mt={4}
 						colorScheme="teal"
-						type="submit"
+						type="button"
 						onClick={handlePicture}
 					>
 						Agregar Imagen de la Mascota

@@ -6,9 +6,6 @@ import { useModal } from '../../hooks/useModal';
 import { FaEdit, FaPlusCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { startDeleting, activePet, startUploading, startSavePet } from '../actions/pets';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import Swal from 'sweetalert2'
 
 function PetList() {
 
@@ -23,45 +20,6 @@ function PetList() {
 	let ellipsisRight = false
 	const pages = Math.ceil(myPets.length / perPage)
 	const pagination = [];
-
-	const formik = useFormik({
-		initialValues: {
-			name: '',
-			age: '',
-			color: '',
-			reward: '',
-			desc_reward: '',
-			desc_pet: '',
-			latitude: '',
-			longitude: '',
-			url_pet: '',
-		},
-		//Validación con Yup
-		validationSchema: Yup.object({
-			name: Yup.string()
-				.required('Nombre Requerido'),
-			age: Yup.number()
-				.required('Edad Requerida'),
-			color: Yup.string()
-				.required('Color Requerido'),
-			desc_pet: Yup.string()
-				.required('Desdcripción de la Mascota Requerida'),
-			latitude: Yup.string()
-				.required('Por favor presione Obtener Ubicacion'),
-			url_pet: Yup.string()
-				.required('Por favor cargue una imagen de la mascota'),
-		}),
-		onSubmit: values => {
-			// dispatch(startNewPet(values));
-
-			Swal.fire(
-				'Excelente!',
-				'Registro realizado con éxito!',
-				'success'
-			)
-			formik.handleReset()
-		},
-	});
 
 	for (let i = 1; i <= pages; i++) {
 		if (i === currentPage) {
