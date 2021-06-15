@@ -18,7 +18,7 @@ function HeaderMainPage() {
     }
 
     return (
-        <HStack id="header-main-page" px={4} spacing={8} backgroundColor="#33A109"  height="80px" position="fixed" top="0" left="0" right="0" >
+        <HStack id="header-main-page" px={4} spacing={8} backgroundColor="#33A109"  height="80px" position="fixed" zIndex="20" top="0" left="0" right="0" >
             <Icon fontSize={20} color="white" as={FaPaw}  />
             <InputGroup>
                 <InputLeftElement
