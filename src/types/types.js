@@ -7,4 +7,6 @@ export const types = {
 
     uiStartLoading: '[UI] Start Loading',
     uiFinishLoading: '[UI] Finish Loading',
+
+    petSearchInfo: "[PET] Search Info"
 }

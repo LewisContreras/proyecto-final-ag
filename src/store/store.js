@@ -1,9 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { authReducer } from '../components/reducers/authReducer';
 import thunk from 'redux-thunk';
+import { petsInfoReducer } from '../components/reducers/petsInfoReducer';
+
 
 const reducers = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    petsInfo: petsInfoReducer
 })
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

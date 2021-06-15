@@ -6,12 +6,17 @@ import "../../styles/animations.css"
 
 
 
-function EachPetCard() {
+function EachPetCard({pet}) {
+    console.log(pet);
     return (
         <Box className="scene_element scene_element--fadeinup" borderRadius="6px" boxShadow="lg" overflow="hidden" width="160px"
-         height="200px" backgroundColor="#77D353" >
-            <Image height="80%" src="https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg" />
-            <Text color="white" textDecoration="none" >Desaparecido</Text>
+          backgroundColor="#77D353" >
+            <Image  width="100%" height="180px" src={pet.url} />
+            <Text mx="2" mt="10px" width="max-content" borderRadius="20px" py="3px" px="10px" bgColor="yellow.300" color="white" textDecoration="none" >{pet.state}</Text>
+            <Text>{`Nombre: ${pet.name}`}</Text>
+            <Text>Dirección</Text>
+            <Text>{pet.latitude}</Text>
+            <Text>{pet.longitude}</Text>
         </Box>       
     )
 }
