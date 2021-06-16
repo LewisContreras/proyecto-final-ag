@@ -6,8 +6,6 @@ import React from 'react'
 import "../../styles/animations.css"
 import Typewriter from 'typewriter-effect';
 
-
-
 function EachPetCard({pet}) {
     return (
         <Box border="2px solid #77D353" className="scene_element scene_element--fadeinup" borderRadius="6px" boxShadow="lg" overflow="hidden" width="160px"
@@ -16,9 +14,9 @@ function EachPetCard({pet}) {
             <VStack px="3px" my="10px"  alignItems="start" >
                 <HStack  justifyContent="space-evenly" >
                     {
-                        pet.reward
+                        pet.reward && pet.state !== 'Encontrado'
                         ?
-                        <Box   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >
+                        <Box width="max-content" borderRadius="20px" py="3px" px="8px" bgColor={(pet.state === 'Desaparecido') ? "yellow.300": "red"} fontWeight="600" color="white" textDecoration="none" >
                             <Typewriter
                                 options={{
                                     strings: [`${pet.state}`, `${pet.reward}`],
@@ -28,7 +26,7 @@ function EachPetCard({pet}) {
                             />
                         </Box>
                         :
-                        <Text   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >{pet.state}</Text>
+                        <Text width="max-content" borderRadius="20px" py="3px" px="8px" bgColor={(pet.state === 'Desaparecido') ? "yellow.300": "#00EAD3"} fontWeight="600" color="white" textDecoration="none" >{pet.state}</Text>
                     }
 
                     {
