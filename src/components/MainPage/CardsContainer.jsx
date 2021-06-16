@@ -29,7 +29,7 @@ function CardsContainer() {
 
 
     return (
-        <Grid templateColumns="repeat(auto-fill,160px)" gap="10px" justifyContent="space-evenly" mt="100px" width={["100%","90%"]} mx="auto" pb="20px"   >
+        <Grid pt="80px" mb="80px" templateColumns="repeat(auto-fill,160px)" gap="10px" justifyContent="space-evenly" mt="20px" width={["100%","90%"]} mx="auto" pb="20px"   >
             {   
                 !info.length
                 ?null

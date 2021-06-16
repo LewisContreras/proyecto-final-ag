@@ -4,18 +4,17 @@ import ArrowUpMainPage from "../components/MainPage/ArrowUpMainPage";
 import CardsContainer from "../components/MainPage/CardsContainer";
 import SideBar from "../components/MainPage/SideBar.jsx";
 import Navbar from "../components/MainPage/Navbar.jsx"
+import HeaderMainPage from "../components/MainPage/HeaderMainPage";
 
 function MainPage() {
     return (
         <Box>
-            <Navbar />
-            <div className="flex">
-                <SideBar />
-                <div className="content">
-                    <CardsContainer />
-                    <ArrowUpMainPage />
-                </div>
-            </div>
+            {/* <Navbar /> */}
+            <HeaderMainPage/>
+            <SideBar />
+            <CardsContainer />
+            <ArrowUpMainPage />
+             
         </Box>
     );
 }
