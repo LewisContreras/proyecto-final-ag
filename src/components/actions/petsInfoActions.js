@@ -1,5 +1,23 @@
+import { goSearch } from "../../helpers/goSearch";
 import { types } from "../../types/types";
 
+
+export const petStartSearchInfo = () => {
+
+    return async (dispatch,getState) => {
+        // const last = await getState().petsInfo.last
+        // const info = getState().petsInfo.info
+        const pets = await goSearch()
+        // if(!!pets.length){
+        //     console.log(pets[pets.length - 1].idDoc);
+        //     const lasted = pets[pets.length - 1].idDoc
+        //     dispatch(petLast(pets[pets.length - 1].idDoc))
+        // }
+        dispatch(petSearchInfo([...pets]))
+        
+    }
+
+}
 
 export const petSearchInfo = (pets) => {
     return {
@@ -15,20 +33,13 @@ export const petDetail = (pet) => {
     }
 }
 
-// export const startMovieSelected = (categorie) => {
+export const petLast = (last) => {
+    return {
+        type: types.petLast,
+        payload: last
+    }
+}
 
-//     return async (dispatch,getState) => {
-//         const search = getState().movies.search
-//         const last = getState().movies.last
-//         const selected = getState().movies.selected
-//         const {movies,last:lasted} = await goSearchMovies(categorie,selected,last)
 
-//         dispatch(movieLastDoc(lasted))
-
-//         dispatch(movieSelected(movies))
-        
-//     }
-
-// }
 
 

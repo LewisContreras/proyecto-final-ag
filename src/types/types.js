@@ -17,5 +17,6 @@ export const types = {
     petDelete: '[Pets] Delete Pet',
     petLogoutCleaning: '[Pets] Logout Cleaning',
     petSearchInfo: "[PET] Search Info",
-    petDetail: "[PET] Detail view"
+    petDetail: "[PET] Detail view",
+    petLast: "[PET] Last Doc Pet"
 }

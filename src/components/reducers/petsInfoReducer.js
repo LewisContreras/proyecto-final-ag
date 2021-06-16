@@ -2,7 +2,8 @@ import {types} from '../../types/types'
 
 const initialState = {
     info:[],
-    detail:null
+    detail:null,
+    last: null
 }
 
 export const petsInfoReducer = (state = initialState, action) => {
@@ -18,6 +19,14 @@ export const petsInfoReducer = (state = initialState, action) => {
                 ...state,
                 detail: action.payload
             }
+
+        case types.petLast:
+            return {
+                ...state,
+                last: action.payload
+            }
+
+        
 
         default:
             return state;

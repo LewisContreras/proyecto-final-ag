@@ -27,7 +27,7 @@ function InfoDetailView() {
         <Box  position="relative" width={["100vw", "100vw","40vw"]} >
             <Box position="absolute" display={["block", "block","none"]} top="-12" right="0" w="100vw"  dangerouslySetInnerHTML={{__html: '<div style="height: 80px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #77D353;"></path></svg></div>'}} height="150px" overflow="hidden"  >
             </Box>
-            <Box position="absolute" display={["none", "none","block"]} right={["0","0","180","250"]} w="40vw"  dangerouslySetInnerHTML={{__html: '<div style="height: 100vh; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M213.19,0.00 C152.69,70.06 270.03,70.06 202.98,150.00 L500.00,150.00 L500.00,0.00 Z" style="stroke: none; fill: #77D353;"></path></svg></div>'}}  overflow="hidden"  >
+            <Box position="absolute" display={["none", "none","block"]} right={["0","0","180","280"]} w={["40vw","40vw","40vw","40vw"]}  dangerouslySetInnerHTML={{__html: '<div style="height: 100vh; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M213.19,0.00 C152.69,70.06 270.03,70.06 202.98,150.00 L500.00,150.00 L500.00,0.00 Z" style="stroke: none; fill: #77D353;"></path></svg></div>'}}  overflow="hidden"  >
             </Box>
             <Box px={6} pb="70px" position="relative" minHeight={["50vh","50vh","100vh"]} backgroundColor="#77D353" >
             <Button onClick={()=>getLink()} position="absolute" display="none" top="-10px" right="20px" color="white" backgroundColor="#33A109"  rightIcon={<FaShare color="white" />} >Compartir</Button>
@@ -67,7 +67,7 @@ function InfoDetailView() {
             
             </VStack>
             
-            <HStack bgColor="#77D353" height="60px" position="fixed" bottom="0" left="0" right="0" px="20px" justifyContent="space-between" mt={4}>
+            <HStack bgColor="#77D353" height="60px" position={["fixed","fixed","absolute"]} bottom="0" left="0" right="0" px="20px" justifyContent="space-between" mt={4}>
                 <Icon fontSize={30} color="white"  as={FaUser} />
                 <Link to="/chat" as={ReachLink} >
                     <Button color="white" backgroundColor="#33A109" >Contactar</Button>
