@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { HStack, Link } from '@chakra-ui/layout'
 import Icon from '@chakra-ui/icon'
 import { Link as ReachLink } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
-import { MapContainer, TileLayer, Marker, Popup, icon } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import '../../styles/map.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import L from 'leaflet';
 
 let pos = 0;

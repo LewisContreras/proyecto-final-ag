@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import HeaderPost from '../PostPage/HeaderPost'
-import { Center } from '@chakra-ui/layout'
+import { Box, Center } from '@chakra-ui/layout'
+import { Divider } from "@chakra-ui/react"
 import { useDispatch, useSelector } from 'react-redux';
-import { useModal } from '../../hooks/useModal';
-import { FaEdit, FaPlusCircle } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { startDeleting, activePet, startUploading, startSavePet } from '../actions/pets';
+import { startDeleting, activePet } from '../actions/pets';
+import Typewriter from 'typewriter-effect';
 
 function PetList() {
 
@@ -71,7 +72,17 @@ function PetList() {
 			<HeaderPost />
 			<Center flexDirection="column" pt="10px" backgroundColor="#77D353" minHeight="93vh">
 				<div className="lista-peliculas col-md-8 mx-auto text-center">
-					<h1 className="text-center">Administrar Mascotas Reportadas</h1>
+				<Divider />
+					<Box textStyle="h1">
+						<Typewriter
+                                options={{
+                                    strings: ["Administrar Mascotas Reportadas"],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                            />
+					</Box>
+					<Divider />
 					<table className="table mt-5">
 						<thead>
 							<tr>

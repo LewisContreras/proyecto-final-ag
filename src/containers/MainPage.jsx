@@ -3,11 +3,9 @@ import React, { useEffect, useRef } from "react";
 import ArrowUpMainPage from "../components/MainPage/ArrowUpMainPage";
 import CardsContainer from "../components/MainPage/CardsContainer";
 import SideBar from "../components/MainPage/SideBar.jsx";
-import Navbar from "../components/MainPage/Navbar.jsx"
 import HeaderMainPage from "../components/MainPage/HeaderMainPage";
 import { petStartSearchInfo } from "../components/actions/petsInfoActions";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "@chakra-ui/react";
 
 function MainPage() {
 

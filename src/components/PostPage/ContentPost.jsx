@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/button'
-import { Center } from '@chakra-ui/layout'
+import { Box, Center } from '@chakra-ui/layout'
 import { Textarea } from '@chakra-ui/textarea'
 import React from 'react'
 import {
@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useHistory  } from 'react-router-dom'
+import Typewriter from 'typewriter-effect';
+import { Divider } from "@chakra-ui/react"
 
 function ContentPost() {
 
@@ -91,8 +93,18 @@ function ContentPost() {
         <div className="scene_element scene_element--fadeinright">
             <form onSubmit={formik.handleSubmit}>
                 <Center flexDirection="column" pt="10px" px={6} backgroundColor="#77D353" minHeight="100vh">
-
-                    <FormControl>
+                    <Divider />
+					<Box textStyle="h1">
+						<Typewriter
+                                options={{
+                                    strings: ["Reportar Mascota"],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                            />
+					</Box>
+					<Divider />
+                    <FormControl mt={4}>
                         <FormLabel>Nombre de la Mascota</FormLabel>
                         <Input
                             type="text"

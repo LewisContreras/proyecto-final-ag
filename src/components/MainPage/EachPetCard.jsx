@@ -4,6 +4,7 @@ import { Box } from '@chakra-ui/layout'
 import { Center, HStack, VStack } from '@chakra-ui/react'
 import React from 'react'
 import "../../styles/animations.css"
+import Typewriter from 'typewriter-effect';
 
 
 
@@ -14,11 +15,26 @@ function EachPetCard({pet}) {
             <Image  width="100%" height="180px" src={pet.url} />
             <VStack px="3px" my="10px"  alignItems="start" >
                 <HStack  justifyContent="space-evenly" >
-                <Text   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >{pet.state}</Text>
+                    {
+                        pet.reward
+                        ?
+                        <Box   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >
+                            <Typewriter
+                                options={{
+                                    strings: [`${pet.state}`, `${pet.reward}`],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                            />
+                        </Box>
+                        :
+                        <Text   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >{pet.state}</Text>
+                    }
+
                     {
                         !pet.reward
                         ?null
-                        :<Center fontWeight="700" border="3px solid black" borderRadius="34px" px="5px" h="30px" color="black" fontSize="xl" bgColor="gold"  >
+                        :<Center fontWeight="700" border="1px solid black" borderRadius="27px" px="5px" h="27px" color="black" fontSize="xl" bgColor="gold"  >
                         $
                         </Center>
                     }
@@ -28,7 +44,7 @@ function EachPetCard({pet}) {
                 <Text fontSize="18px" color="blackAlpha.700" fontWeight="700"  >Dirección: <Text color="white" fontWeight="400" as="span" ></Text>
                 </Text>
             </VStack>
-        </Box>       
+        </Box>
     )
 }
 

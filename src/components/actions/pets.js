@@ -3,7 +3,6 @@ import { db } from '../../firebase/firebase-config';
 import { types } from '../../types/types';
 import { loadPets, loadMyPets, loadSearch } from '../../helpers/loadPets';
 import { fileUpload } from '../../helpers/fileUpload';
-import { Redirect } from "react-router-dom";
 
 export const startNewPet = (pet) => {
 
