@@ -21,7 +21,7 @@ function EachPetCard({pet}) {
                         <Box   width="max-content" borderRadius="20px" py="3px" px="8px" bgColor="yellow.300" fontWeight="600" color="white" textDecoration="none" >
                             <Typewriter
                                 options={{
-                                    strings: [`${pet.state}`, `${pet.reward}`],
+                                    strings: [`${pet.state}`, `$ ${pet.reward}`],
                                     autoStart: true,
                                     loop: true,
                                 }}
