@@ -85,13 +85,21 @@ function EditPage() {
 		const file = e.target.files[0];
 		const urlFile = dispatch(startUploading(file));
 		urlFile.then((url) => {
-			formik.values.ur = url
+			formik.values.url = url
 		})
 	}
 
 	const pushList = () => {
         history.push('/my-pets')
     }
+
+	const changeState = () => {
+		if(formik.values.state === 'Desaparecido'){
+			formik.values.state = 'Encontrado'
+		}else{
+			formik.values.state = 'Desaparecido'
+		}
+	}
 
 	return (
 		<div className="scene_element scene_element--fadeinup">
@@ -143,17 +151,27 @@ function EditPage() {
 					</FormControl>
 
 					<FormControl>
-						<FormLabel>Estado</FormLabel>
-						<Input
+						{/* <FormLabel>Estado</FormLabel> */}
+						{/* <Input
 							type="text"
 							placeholder="Estado de la Mascota"
 							name="state"
 							id="state"
 							value={formik.values.state}
 							onChange={formik.handleChange}
-						/>
+							hidden
+						/> */}
 						{formik.errors.state ? <div className="text-danger">{formik.errors.state}</div> : null}
 					</FormControl>
+
+					<Button
+						mt={4}
+						colorScheme="teal"
+						type="button"
+						onClick={changeState}
+					>
+						Cambiar Estado a {formik.values.state === 'Desaparecido' ? "Encontrado": "Desaparecido"}
+					</Button>
 
 					<FormControl className="mb-4">
 						<FormLabel>Recompensa</FormLabel>
