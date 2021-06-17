@@ -51,7 +51,6 @@ function PetList() {
 		setCurrentPage(page)
 	}
 
-
 	const deletePet = (e, id) => {
 		dispatch(startDeleting(id));
 	}
