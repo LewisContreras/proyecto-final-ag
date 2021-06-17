@@ -13,6 +13,7 @@ import { petChat } from '../actions/petsInfoActions'
 function InfoDetailView() {
     const dispatch = useDispatch()
     const detail = useSelector(state => state.petsInfo.detail)
+    const uid = useSelector(state => state.auth.uid)
     const getLink = () => {
         var aux = document.createElement("input");
         aux.setAttribute("value", window.location.href.split('?')[0].split('#')[0]);
@@ -23,7 +24,7 @@ function InfoDetailView() {
     }
 
     const handleClickContact =()=>{
-        dispatch(petChat(detail.id_user))
+        dispatch(petChat(detail))
     }
 
     return (
@@ -69,13 +70,20 @@ function InfoDetailView() {
 
 
                 </VStack>
-
-                <HStack bgColor="#77D353" height="60px" position={["fixed", "fixed", "absolute"]} bottom="0" left="0" right="0" px="20px" justifyContent="space-between" mt={4}>
-                    <Icon fontSize={30} color="white" as={FaUser} />
-                    <Link to="/chat" as={ReachLink} >
-                        <Button color="white" backgroundColor="#33A109" onClick={handleClickContact} >Contactar</Button>
-                    </Link>
-                </HStack>
+                    {
+                        uid === detail.id_user
+                        ?<HStack justifyContent="center" bgColor="#77D353" height="60px" position={["fixed", "fixed", "absolute"]} bottom="0" left="0" right="0" px="20px"  mt={4}>
+                        <Text fontSize="2xl" color="brand.title" fontWeight="600" >Tu mascota</Text>
+                        
+                    </HStack>
+                        :<HStack bgColor="#77D353" height="60px" position={["fixed", "fixed", "absolute"]} bottom="0" left="0" right="0" px="20px" justifyContent="space-between" mt={4}>
+                        <Icon fontSize={30} color="white" as={FaUser} />
+                        <Link to="/chat" as={ReachLink} >
+                            <Button color="white" backgroundColor="#33A109" onClick={handleClickContact} >Contactar</Button>
+                        </Link>
+                    </HStack>
+                    }
+                
 
             </Box>
         </Box>

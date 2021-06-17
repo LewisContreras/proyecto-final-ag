@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { petChat } from '../actions/petsInfoActions'
+import EachMessageCard from './EachMessageCard'
 
 
 const ContainerMessages = () => {
@@ -14,16 +15,15 @@ const ContainerMessages = () => {
 
     return (
             <Box>
-                <Box  ><Text fontWeight="600" fontSize="2xl" color="brand.title" >
+                <Box mb="20px" ><Text fontWeight="600" fontSize="2xl" color="brand.title" >
                 Chats</Text></Box>
                 {
                     !messages.length
                     ?<Text fontSize="xl" color="brand.title" >No tienes mensajes</Text>
-                    :messages.map(el =><Box key={el.id} onClick={()=>{
+                    :messages.map(el =><EachMessageCard message={el}  key={el.id} onClick={()=>{
                         dispatch(petChat(el.id))
                         history.push("/chat")
-                    }} ><Text fontWeight="600" fontSize="2xl" color="brand.title" >
-                    {el.id}</Text></Box>)
+                    }} /> )
                 }
             </Box>
             
