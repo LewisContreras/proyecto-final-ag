@@ -21,7 +21,8 @@ export const startNewPet = (pet) => {
             longitude: pet.longitude,
             url: pet.url_pet,
             id_user: uid,
-            state: 'Desaparecido'
+            state: 'Desaparecido',
+            date: new Date().getTime()
         }
 
         const doc = await db.collection("Data/pets/pet").add(newPet);
