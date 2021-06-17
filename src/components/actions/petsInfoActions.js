@@ -26,6 +26,20 @@ export const petSearchInfo = (pets) => {
     }
 }
 
+export const petChat = (user) => {
+    return {
+        type: types.petChat,
+        payload: user
+    }
+}
+
+export const petChatMessages = (messages) => {
+    return {
+        type: types.petMessages,
+        payload: messages
+    }
+}
+
 export const petDetail = (pet) => {
     return {
         type: types.petDetail,

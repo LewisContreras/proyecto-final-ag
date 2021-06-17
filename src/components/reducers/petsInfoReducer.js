@@ -3,7 +3,9 @@ import {types} from '../../types/types'
 const initialState = {
     info:[],
     detail:null,
-    last: null
+    last: null,
+    chat: "",
+    messages: []
 }
 
 export const petsInfoReducer = (state = initialState, action) => {
@@ -26,7 +28,17 @@ export const petsInfoReducer = (state = initialState, action) => {
                 last: action.payload
             }
 
-        
+        case types.petChat:
+            return {
+                ...state,
+                chat: action.payload
+            }
+
+        case types.petMessages:
+            return {
+                ...state,
+                messages: action.payload
+            }
 
         default:
             return state;

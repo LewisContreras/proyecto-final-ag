@@ -6,10 +6,12 @@ import { Box } from '@chakra-ui/layout'
 import { Center, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { FaShare, FaUser } from 'react-icons/fa'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link as ReachLink } from 'react-router-dom';
+import { petChat } from '../actions/petsInfoActions'
 
 function InfoDetailView() {
+    const dispatch = useDispatch()
     const detail = useSelector(state => state.petsInfo.detail)
     const getLink = () => {
         var aux = document.createElement("input");
@@ -18,6 +20,10 @@ function InfoDetailView() {
         aux.select();
         document.execCommand("copy");
         document.body.removeChild(aux);
+    }
+
+    const handleClickContact =()=>{
+        dispatch(petChat(detail.id_user))
     }
 
     return (
@@ -42,21 +48,21 @@ function InfoDetailView() {
                         }
 
                     </HStack>
-                    <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Nombre: <Text color="white" fontWeight="400" as="span" >{detail.name}</Text>
+                    <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Nombre: <Text color="white" fontWeight="400" as="span" >{detail.name}</Text>
                     </Text>
-                    <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Edad: <Text color="white" fontWeight="400" as="span" >{`${detail.age} años`}</Text>
+                    <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Edad: <Text color="white" fontWeight="400" as="span" >{`${detail.age} años`}</Text>
                     </Text>
-                    <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Color: <Text color="white" fontWeight="400" as="span" >{detail.color}</Text>
+                    <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Color: <Text color="white" fontWeight="400" as="span" >{detail.color}</Text>
                     </Text>
-                    <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Descripción: <Text color="white" fontWeight="400" as="span" >{detail.desc_pet}</Text>
+                    <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Descripción: <Text color="white" fontWeight="400" as="span" >{detail.desc_pet}</Text>
                     </Text>
                     {
                         !detail.reward
                             ? null
                             : <Box>
-                                <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Recompensa: <Text color="black" fontWeight="00" as="span" >{`$ ${detail.reward}`}</Text>
+                                <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Recompensa: <Text color="black" fontWeight="00" as="span" >{`$ ${detail.reward}`}</Text>
                                 </Text>
-                                <Text fontSize="2xl" color="blackAlpha.700" fontWeight="700"  >Detalles: <Text color="white" fontWeight="400" as="span" >{detail.desc_reward}</Text>
+                                <Text fontSize="2xl" color="brand.title" fontWeight="700"  >Detalles: <Text color="white" fontWeight="400" as="span" >{detail.desc_reward}</Text>
                                 </Text>
                             </Box>
                     }
@@ -67,7 +73,7 @@ function InfoDetailView() {
                 <HStack bgColor="#77D353" height="60px" position={["fixed", "fixed", "absolute"]} bottom="0" left="0" right="0" px="20px" justifyContent="space-between" mt={4}>
                     <Icon fontSize={30} color="white" as={FaUser} />
                     <Link to="/chat" as={ReachLink} >
-                        <Button color="white" backgroundColor="#33A109" >Contactar</Button>
+                        <Button color="white" backgroundColor="#33A109" onClick={handleClickContact} >Contactar</Button>
                     </Link>
                 </HStack>
 
