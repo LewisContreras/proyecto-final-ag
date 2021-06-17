@@ -2,7 +2,7 @@ import { db } from '../firebase/firebase-config';
 
 export const loadPets = async ( uid ) => {
 
-    const petsSnap = await db.collection("Data/pets/pet").orderBy('name').get();
+    const petsSnap = await db.collection("Data/pets/pet").orderBy('date').get();
 
     const pets = [];
 
