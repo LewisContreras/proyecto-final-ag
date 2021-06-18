@@ -8,7 +8,7 @@ import {
     Input
 } from "@chakra-ui/react";
 import { startUploading, startNewPet } from '../actions/pets';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -20,6 +20,8 @@ function ContentPost() {
 
     const dispatch = useDispatch();
     let history = useHistory();
+    const {name} = useSelector(state => state.auth);
+    console.log(name)
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -31,6 +33,7 @@ function ContentPost() {
             latitude: '',
             longitude: '',
             url_pet: '',
+            displayName: name
         },
         //Validación con Yup
         validationSchema: Yup.object({
@@ -53,7 +56,7 @@ function ContentPost() {
             Swal.fire({
 				position: 'center',
 				icon: 'success',
-				title: 'Your work has been saved',
+				title: 'Se ha reportado la mascota',
 				showConfirmButton: false,
 				allowEscapeKey: false,
 				allowOutsideClick: false,

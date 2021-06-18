@@ -19,7 +19,7 @@ export const LoginScreen = () => {
             <Normalize />
             <Flex height="100vh" alignItems="center" justifyContent="center" background="#d8f8b7">
                 <Flex direction="column" alignItems="center" justifyContent="center" background="#a3d2ca" p={12} rounded={6}>
-                    <Heading mt={20} mb={25}>Log In PetFind</Heading>
+                    <Heading mt={20} mb={25}>Log In FindPets</Heading>
                     <Box>
                         <Image
                             rounded={100}
@@ -36,7 +36,7 @@ export const LoginScreen = () => {
                         variant="outline"
                         onClick={handleGoogle}
                     >
-                        Iniciar Sesion con Google
+                        Iniciar Sesión con Google
                     </Button>
                 </Flex>
             </Flex>

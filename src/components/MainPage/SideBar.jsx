@@ -8,8 +8,6 @@ import { HStack, Icon } from '@chakra-ui/react';
 
 function SideBar() {
 
-
-
 	return (
 		<HStack px="5%" justifyContent="space-between" bgColor="brand.primary" zIndex="20" position="fixed" bottom="0" w="100vw" h="60px" >
 			{/* <NavLink  exact to="/" >

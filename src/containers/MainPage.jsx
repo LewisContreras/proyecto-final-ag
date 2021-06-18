@@ -13,11 +13,11 @@ function MainPage() {
     const dispatch = useDispatch()
     const uid = useSelector(state => state.auth.uid)
 
-    const handleScroll = (e)=>{
+    const handleScroll = (e) => {
         let scrollTop = document.scrollingElement.scrollTop
         let scrollHeight = document.scrollingElement.scrollHeight
         let viewport = document.scrollingElement.clientHeight
-        if(scrollTop + viewport + 0.5 > scrollHeight  ){
+        if (scrollTop + viewport + 0.5 > scrollHeight) {
             // console.log("Estamos abajo");
             // dispatch(petStartSearchInfo())
         }
@@ -25,26 +25,26 @@ function MainPage() {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-        if(!mounted.current){
+        if (!mounted.current) {
             dispatch(petStartSearchInfo())
             mounted.current = true
         }
-        
-        return ()=>{
+
+        return () => {
             window.removeEventListener("scroll", handleScroll)
         }
-        
+
     }, [uid])
 
 
     return (
         <Box>
             {/* <Navbar /> */}
-            <HeaderMainPage/>
+            <HeaderMainPage />
             <SideBar />
             <CardsContainer />
             <ArrowUpMainPage />
-             
+
         </Box>
     );
 }

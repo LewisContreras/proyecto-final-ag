@@ -2,7 +2,7 @@ import { db } from '../firebase/firebase-config';
 
 export const loadPets = async ( uid ) => {
 
-    const petsSnap = await db.collection("Data/pets/pet").orderBy('name').get();
+    const petsSnap = await db.collection("Data/pets/pet").orderBy('date').get();
 
     const pets = [];
 
@@ -37,7 +37,7 @@ export const loadSearch = async(search) => {
     let respuesta = '';
 
     if(search === ''){
-        respuesta = await db.collection("Data/pets/pet").orderBy('name').get();
+        respuesta = await db.collection("Data/pets/pet").orderBy('date').get();
     }else{
         respuesta = await db.collection("Data/pets/pet").where("name", "==", search).get();
     }
@@ -50,6 +50,7 @@ export const loadSearch = async(search) => {
             ...pet.data()
         })
     });
+
     return pets;
 }
 
