@@ -15,39 +15,52 @@ function ContentChat() {
     const dispatch = useDispatch()
     const chat = useSelector(state => state.petsInfo.chat)
     const uid = useSelector(state => state.auth.uid)
+    const name = useSelector(state => state.auth.name)
     const [message, setMessage] = useState()
     const {loading, messages, error} = useChat(uid,chat.id_user)
 
     const handleClick = async (e)=>{
         e.preventDefault()
-        let objectSend = {
-                    message,
-                    timeStamp : Date.now(),
-                    state:"sent"
-                }
-        console.log(document.scrollingElement.scrollHeight);
-        window.scrollTo(0,document.body.scrollHeight);
-        await db.doc(`/chat/user/${uid}/${chat.id_user}`).set({
-            displayname:chat.displayName,
-            id_user: chat.id_user,
-            timeStamp: Date.now(),
-            date:new Date(Date.now()).toLocaleDateString()
+        if(e.target.previousElementSibling.value.trim()!== ""){
+            let objectSend = {
+                message,
+                timeStamp : Date.now(),
+                state:"sent"
+            }
+    e.target.previousElementSibling.value= ""
 
-        })
+    window.scrollTo(0,document.body.scrollHeight + 4000);
+    await db.doc(`/chat/user/${uid}/${chat.id_user}`).set({
+        displayName:chat.displayName,
+        id_user: chat.id_user,
+        timeStamp: Date.now(),
+        date:new Date(Date.now()).toLocaleDateString()
 
-        await db.collection(`/chat/user/${uid}/${chat.id_user}/messages`).add(objectSend)
-        objectSend.state = "received"
-        await db.collection(`/chat/user/${chat.id_user}/${uid}/messages`).add(objectSend)
+    })
+
+    await db.doc(`/chat/user/${chat.id_user}/${uid}`).set({
+        displayName:name,
+        id_user: uid,
+        timeStamp: Date.now(),
+        date:new Date(Date.now()).toLocaleDateString()
+
+    })
+
+    await db.collection(`/chat/user/${uid}/${chat.id_user}/messages`).add(objectSend)
+    objectSend.state = "received"
+    await db.collection(`/chat/user/${chat.id_user}/${uid}/messages`).add(objectSend)
+        }
+        
     }
 
     return (
-        <VStack spacing={4} px={4} pt={4} pb="120px" minHeight="80vh" backgroundColor="#77D353" >
+        <VStack width="100%" spacing={4} px={4} pt={4} pb="120px" minHeight="80vh" backgroundColor="brand.secondary" >
                     {
                         messages.map((m, i) =>{
                             return(
                                 m.state === "sent"
-                                ?<SentMessage key={i}  message={m}/>
-                                :<ReceivedMessage key={i} />
+                                ?<SentMessage key={i} previous={messages[i-1] || {state:"no"}}  message={m}/>
+                                :<ReceivedMessage key={i} previous={messages[i-1] || {state:"no"}} message={m} />
                             )
                         } )
                     }

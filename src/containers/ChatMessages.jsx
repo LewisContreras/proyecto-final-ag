@@ -13,7 +13,7 @@ const ChatMessages = () => {
 
     useEffect(() => {
         const messages = []
-        db.collection(`chat/user/${uid}`).onSnapshot(snap =>{
+        db.collection(`chat/user/${uid}`).orderBy("timeStamp", "desc").onSnapshot(snap =>{
             snap.forEach(hijo => {
                 messages.push({
                     id:hijo.id,
@@ -22,6 +22,7 @@ const ChatMessages = () => {
            
             });
             dispatch(petChatMessages(messages))
+            
         })
         
         // .catch(err =>console.log(err))

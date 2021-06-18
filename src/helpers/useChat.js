@@ -7,7 +7,7 @@ export const useChat = (uid,chat)=>{
     const [messages, setMessages] = useState([])
 
     useEffect(() => {
-        const unsubscribe = db.collection(`/chat/user/${uid}/${chat}/messages`).onSnapshot(
+        const unsubscribe = db.collection(`/chat/user/${uid}/${chat}/messages`).orderBy("timeStamp").onSnapshot(
             snapshot =>{
                 setLoading(false)
                 setMessages(snapshot.docs.map(d =>({id:d.id, ...d.data()})))
@@ -15,6 +15,7 @@ export const useChat = (uid,chat)=>{
             err =>{
                 setError(err)
             }
+
         )
         return ()=>unsubscribe()
     }, [setMessages])

@@ -7,10 +7,12 @@ import { Center, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { FaShare, FaUser } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link as ReachLink } from 'react-router-dom';
+import { Link as ReachLink, useHistory } from 'react-router-dom';
 import { petChat } from '../actions/petsInfoActions'
 
 function InfoDetailView() {
+
+    const history = useHistory()
     const dispatch = useDispatch()
     const detail = useSelector(state => state.petsInfo.detail)
     const uid = useSelector(state => state.auth.uid)

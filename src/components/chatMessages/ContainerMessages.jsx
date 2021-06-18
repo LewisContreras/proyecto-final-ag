@@ -11,7 +11,6 @@ const ContainerMessages = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const messages = useSelector(state => state.petsInfo.messages)
-    console.log(messages);
 
     return (
             <Box>

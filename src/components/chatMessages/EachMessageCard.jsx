@@ -9,7 +9,6 @@ const EachMessageCard = ({message}) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    console.log(message);
     return (
         <HStack onClick={()=>{
             dispatch(petChat(message))
