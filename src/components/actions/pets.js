@@ -22,7 +22,8 @@ export const startNewPet = (pet) => {
             url: pet.url_pet,
             id_user: uid,
             state: 'Desaparecido',
-            date: new Date().getTime()
+            date: new Date().getTime(),
+            displayName: pet.displayName
         }
 
         const doc = await db.collection("Data/pets/pet").add(newPet);
@@ -89,14 +90,14 @@ export const startSavePet = (pet) => {
 
         await db.doc(`Data/pets/pet/${pet.id}`).update(petToFirestore);
 
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            allowOutsideClick: false,
-            title: 'Los cambios se han guardado',
-            showConfirmButton: false,
-            timer: 1000
-        })
+        // Swal.fire({
+        //     position: 'center',
+        //     icon: 'success',
+        //     allowOutsideClick: false,
+        //     title: 'Los cambios se han guardado',
+        //     showConfirmButton: false,
+        //     timer: 1000
+        // })
 
         dispatch(startLoadingPets(uid));
         dispatch(startLoadinMyPets(uid));

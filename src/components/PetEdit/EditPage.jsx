@@ -58,7 +58,7 @@ function EditPage() {
 			Swal.fire({
 				position: 'center',
 				icon: 'success',
-				title: 'Your work has been saved',
+				title: 'Reporte Actualizado',
 				showConfirmButton: false,
 				allowEscapeKey: false,
 				allowOutsideClick: false,

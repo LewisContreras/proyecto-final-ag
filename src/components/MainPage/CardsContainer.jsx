@@ -6,11 +6,12 @@ import { Grid } from '@chakra-ui/react';
 import "../../styles/animations.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { petDetail } from '../actions/petsInfoActions.js';
+import { Input} from '@chakra-ui/input'
 
 function CardsContainer() {
 
     const dispatch = useDispatch()
-    const info = useSelector(state => state.petsInfo.info)
+    const info = useSelector(state => state.pets.pets)
     const [currentPage, setCurrentPage] = useState(1)
     const perPage = 6;
 
@@ -49,14 +50,26 @@ function CardsContainer() {
         setCurrentPage(page)
     }
 
+    const [term, setTerm] = React.useState("")
+
+    const search = (term) => {
+        // let search = document.getElementById('searchs').value
+        return function(x){
+            return x.name.includes(term) || !term;
+        }
+        console.log(term)
+        // dispatch(startSearch(search));
+    }
+
     return (
         <>
             <Grid pt="80px" mb="10px" templateColumns="repeat(auto-fill,160px)" gap="10px" justifyContent="space-evenly" mt="20px" width={["100%", "90%"]} mx="auto" pb="20px"   >
+                {/* <Input id="searchs" onChange={e => setTerm(e.target.value)} borderRadius="10px 0 0 10px" type="text" placeholder="Mascota" color="black" backgroundColor="white" /> */}
                 {
                     !info.length
                         ? null
                         :
-                        data.map((el, index) =>
+                        data.filter(search(term)).map((el, index) =>
                             <Link
                                 display="inline-block"
                                 _hover={{
