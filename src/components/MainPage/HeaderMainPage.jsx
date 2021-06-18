@@ -7,15 +7,22 @@ import { Button } from '@chakra-ui/react'
 import { GiExitDoor } from "react-icons/gi";
 import { startLogout } from '../actions/auth'
 import { useDispatch } from 'react-redux'
+import { startSearch } from '../actions/pets';
 
 function HeaderMainPage() {
 
     const dispatch = useDispatch();
 
-
     const handleClickLogout = () => {
         dispatch(startLogout())
     }
+
+    const search = (term) => {
+        let search = document.getElementById('search').value
+        // console.log(search)
+        dispatch(startSearch(search));
+    }
+
 
     return (
 
@@ -26,8 +33,9 @@ function HeaderMainPage() {
                     pointerEvents="none" color="black"
                     children={<FaSearch />}
                 />
-                <Input borderRadius="10px 0 0 10px" type="text" placeholder="Search" color="black" backgroundColor="white" />
-                <Button borderRadius="0 10px 10px 0" bgColor="#237006" >Buscar</Button>
+                {/* <Input id="search" onChange={search} borderRadius="10px 0 0 10px" type="text" placeholder="Mascota" color="black" backgroundColor="white" /> */}
+                <Input id="search" autoComplete="off" onChange={search} type="text" placeholder="Mascota" color="black" backgroundColor="white" />
+                {/* <Button borderRadius="0 10px 10px 0" bgColor="#237006" onClick={search} >Buscar</Button> */}
             </InputGroup>
             <Icon onClick={handleClickLogout} fontSize="28px" color="white" as={GiExitDoor} />
         </HStack>

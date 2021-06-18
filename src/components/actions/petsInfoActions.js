@@ -14,7 +14,6 @@ export const petStartSearchInfo = () => {
         //     dispatch(petLast(pets[pets.length - 1].idDoc))
         // }
         dispatch(petSearchInfo([...pets]))
-        
     }
 
 }
