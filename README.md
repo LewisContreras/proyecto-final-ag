@@ -1,6 +1,6 @@
 # FindPets
 
-Es una aplicación diseñada en React con Firebase el cual nos proporciona una base de datos en la nube.
+Es una aplicación diseñada en React con Firebase el cual nos proporciona una base de datos en la nube. FindPets es una app para reportar mascotas perdidas.
 
 ## Estilo
 
@@ -8,32 +8,29 @@ Usamos Chakra y bootstrap para darle un estilo personalizado a nuestra app. Adem
 
 ## Otras librerías
 
-Leaflet usada para crear mapas interactivos.
+Leaflet usada para crear mapas interactivos y redux para el manejo del estado de la aplicación.
 
 ## Comandos
 
-In the project directory, you can run:
+En el directorio del proyecto, tu puedes correr:
 
 ### `npm run start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Correr la aplicación en modo desarrollo.\
+Abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La página se recargará si se hacen cambios.\
+Tu puedes también ver cualquier error en la consola.
 
 ### `npm run test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el corredor de pruebas en el modo de reloj interactivo.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`. \
+Agrupa correctamente React en el modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La compilación se minimiza y los nombres de archivo incluyen los hash. \
+¡Tu aplicación está lista para implementarse!
 
