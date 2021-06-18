@@ -1,6 +1,6 @@
 # FindPets
 
-Es una aplicación diseñada en React con Firebase el cual nos proporciona una base de datos en la nube. FindPets es una app para reportar mascotas perdidas.
+FindPets es una app para reportar mascotas perdidas. Esta diseñada en React y Firebase el cual nos proporciona una base de datos en la nube. 
 
 ## Estilo
 
