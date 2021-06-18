@@ -4,7 +4,11 @@ Es una aplicación diseñada en React con Firebase el cual nos proporciona una b
 
 ## Estilo
 
-Usamos Chakra y bootstrap para darle un estilo personalizado a nuestra app
+Usamos Chakra y bootstrap para darle un estilo personalizado a nuestra app. Además, usamos typeWriter para dar un estilo "máquina de escribir" en elgunos cuadros de texto.
+
+## Otras librerías
+
+Leaflet usada para crear mapas interactivos.
 
 ## Comandos
 
